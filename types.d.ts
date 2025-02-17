@@ -1,5 +1,5 @@
 interface Book {
-  id: string;
+  id: number; //是number不是string（github上的错误）
   title: string;
   author: string;
   genre: string;
@@ -11,7 +11,15 @@ interface Book {
   cover: string;
   video: string;
   summary: string;
-  createdAt: Date | null;
+  createdAt?: Date | null; //选填，不然会报错 is missing the following properties from type 'Book': createdAt, userIdts(2739)
+  userId?: string;
+}
+
+interface BookCover {
+  className?: string;
+  variant?: BookCoverVariant;
+  coverColor: string;
+  coverImage: string;
 }
 
 interface AuthCredentials {

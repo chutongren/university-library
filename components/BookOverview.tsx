@@ -58,6 +58,7 @@ const BookOverview = ({
             coverColor={color}
             coverImage={cover}
           />
+          {/* 虚影效果 */}
           <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
             <BookCover variant="wide" coverColor={color} coverImage={cover} />
           </div>
