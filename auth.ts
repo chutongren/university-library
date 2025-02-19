@@ -45,7 +45,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/sign-in",
+    signIn: "/sign-in", //重定向？
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -54,7 +54,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.name = user.name;
       }
 
-      return token; //这里return了！用户id和name添加在JWT中
+      return token; //这里return了！用户id和name添加在JWT中（存储在client的cookies或localStorage里面）
     },
     async session({ session, token }) {
       if (session.user) {
@@ -62,7 +62,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.name = token.name as string;
       }
 
-      return session; //这里return了！用户id和name添加在
+      return session; //这里return了！
+      // session是 NextAuth.js 提供的会话对象，包含了当前登录用户的id和name。
+      // 在客户端和服务器端提供用户信息。相当于一个可以获取到目前登陆用户信息的接口。
+      // 可以通过 auth 函数或 useSession Hook 获取
+      // 在 NextAuth.js 中，会话（Session） 是指当前登录用户的状态信息。会话管理是指如何存储、维护和传递这些状态信息。
+      // 用户信息：例如 id、email、name 等。这些信息通常来自 authorize 函数的返回值，并在 callbacks 中被添加到会话中。
+      // 会话状态：例如用户是否已登录、会话是否过期等。
     },
   },
 });

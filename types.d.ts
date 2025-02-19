@@ -1,19 +1,36 @@
 interface Book {
-  id: number; //是number不是string（github上的错误）
+  id: string; //是number不是string（github上的错误）
   title: string;
   author: string;
   genre: string;
   rating: number;
-  total_copies: number;
-  available_copies: number;
+  totalCopies: number;
+  availableCopies: number;
   description: string;
-  color: string;
-  cover: string;
-  video: string;
+  coverColor: string;
+  coverUrl: string;
+  videoUrl: string;
   summary: string;
   createdAt?: Date | null; //选填，不然会报错 is missing the following properties from type 'Book': createdAt, userIdts(2739)
   userId?: string;
 }
+
+// interface Book {
+//   id: number; //是number不是string（github上的错误）
+//   title: string;
+//   author: string;
+//   genre: string;
+//   rating: number;
+//   total_copies: number;
+//   available_copies: number;
+//   description: string;
+//   color: string;
+//   cover: string;
+//   video: string;
+//   summary: string;
+//   createdAt?: Date | null; //选填，不然会报错 is missing the following properties from type 'Book': createdAt, userIdts(2739)
+//   userId?: string;
+// }
 
 interface BookCover {
   className?: string;

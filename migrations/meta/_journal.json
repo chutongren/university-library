@@ -8,6 +8,13 @@
       "when": 1738789654727,
       "tag": "0000_long_major_mapleleaf",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1739950744264,
+      "tag": "0001_dazzling_stick",
+      "breakpoints": true
     }
   ]
 }
